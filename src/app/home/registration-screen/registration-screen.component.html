@@ -1,0 +1,91 @@
+<app-navbar [navItemList]="navItemList" (navItemWasClicked)="navItemWasClicked($event)">
+  <div class="basic-container">
+    <mat-card class="mat-card-border">
+      <mat-card-header>
+        <mat-card-title>Student Registration</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="text-align: center;">
+        <form [formGroup]="studentRegistrationForm" (ngSubmit)="studentLoginSubmit()">
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Admission Reference</mat-label>
+            <input matInput type="text" placeholder="Enter your addmission Ref. no" formControlName="addmissionId" required>
+            <mat-error *ngIf="hasError('addmissionId','required')">
+              Admission Ref. is required!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input matInput type="text" placeholder="Enter your full name" formControlName="username" required>
+            <mat-error *ngIf="hasError('username','required')">
+              UserName is required!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput maxlength="10" placeholder="Enter your mobile number" formControlName="mobilenumber"
+              required>
+            <mat-error *ngIf="hasError('mobilenumber','required')">
+              Mobile Number is required!
+            </mat-error>
+            <mat-error *ngIf="hasError('mobilenumber','pattern')">
+              please enter valid mobile number!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email Id" formControlName="emailId">
+            <mat-error *ngIf="hasError('emailId','email')">
+              Please enter a valid mail!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Enter your D.O.B"
+              formControlName="dateofbirth" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="hasError('dateofbirth','required')">
+              Please choose date of birth!
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select required  formControlName="selectedGenderValue">
+              <mat-option *ngFor="let gender of genderList" [value]="gender.genderId">
+                {{gender.genderValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
+            <mat-error *ngIf="hasError('password','required')">
+              Password is required!
+            </mat-error>
+            <!-- <mat-error *ngIf="studentRegistrationForm.controls.password.errors.passwordSpecailCharacterCaseValidator">
+              Password must contain at least one special character!
+            </mat-error> -->
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Enter your password again" formControlName="confirmedpassword"
+            required>
+            <mat-error *ngIf="hasError('confirmedpassword','required')">
+              Confirm Password is required!
+            </mat-error>
+            <!-- <mat-error *ngIf="studentRegistrationForm.controls.confirmedpassword.errors.confirmedValidator">
+              Password and Confirm Password do not match is!
+            </mat-error> -->
+          </mat-form-field>
+          <mat-card-actions class="mat-card-actions-custom">
+            <button mat-button type="submit" style="outline: none; background-color: #343F64 !important;"
+              [ngStyle]="studentRegistrationForm.valid && {'color': 'white'}" appearance="fill"
+              [disabled]="!studentRegistrationForm.valid">Register</button>
+            <button mat-button style="outline: none; background-color: #343F64 !important; color: white;"
+              appearance="fill" (click)="onStudentLoginFormCancel()">Cancel</button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</app-navbar>

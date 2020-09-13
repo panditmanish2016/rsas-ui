@@ -1,0 +1,52 @@
+<header>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" [ngClass]="{hideHandset: !(isHandset$ | async)}" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+      <mat-toolbar color="primary">Useful Links</mat-toolbar>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let navItem of navItemList">
+          <div *ngIf="navItem!==null && navItem.i18NSubLabelList.length!=0">
+            <button mat-button style="outline: none;" [matMenuTriggerFor]="menu">{{navItem.labelValue}}</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="navItemClicked(navSubItem)"
+                *ngFor="let navSubItem of navItem.i18NSubLabelList"
+                style="outline: none;">{{navSubItem.labelValue}}</button>
+            </mat-menu>
+          </div>
+          <div *ngIf="navItem!==null && (navItem.i18NSubLabelList.length==0)">
+            <button mat-button style="outline: none;" (click)="navItemClicked(navItem)">{{navItem.labelValue}}</button>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>RSAS BALLIA</span>
+        <span class="spacer"></span>
+        <mat-nav-list class="list-horizontal">
+          <mat-list-item *ngFor="let navItem of navItemList">
+            <div *ngIf="navItem!==null && navItem.i18NSubLabelList.length!=0">
+              <button mat-button (click)="openAndCloseMenu(navItem)" [matMenuTriggerFor]="menu"
+                style="outline: none; color: white;" *ngIf="!(isHandset$ | async)">{{navItem.labelValue}}</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="navItemClicked(navSubItem)"
+                  *ngFor="let navSubItem of navItem.i18NSubLabelList"
+                  style="outline: none;">{{navSubItem.labelValue}}</button>
+              </mat-menu>
+            </div>
+            <div *ngIf="navItem!==null && navItem.i18NSubLabelList.length==0">
+              <button mat-button style="outline: none; color: white;"
+                *ngIf="!(isHandset$ | async)" (click)="navItemClicked(navItem)">{{navItem.labelValue}}</button>
+            </div>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-toolbar>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</header>

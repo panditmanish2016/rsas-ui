@@ -1,0 +1,31 @@
+<app-navbar [navItemList]="navItemList" (navItemWasClicked)="navItemWasClicked($event)">
+<div class="basic-container">
+  <mat-card class="mat-card-border" >
+    <mat-card-header>
+      <mat-card-title>Student Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="text-align: center;">
+      <form [formGroup]="studentLoginForm" (ngSubmit)="studentLoginSubmit()">
+      <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>User Name</mat-label>
+        <input matInput type="text"  placeholder="Enter your student Id" formControlName="username" required>
+        <mat-error *ngIf="hasError('username','required')">
+          UserName is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
+        <mat-error *ngIf="hasError('username','required')">
+          Password is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-card-actions class="mat-card-actions-custom">
+        <button mat-button  type="submit" style="outline: none; background-color: #343F64 !important;" [ngStyle]="studentLoginForm.valid && {'color': 'white'}" appearance="fill" [disabled]="!studentLoginForm.valid">Login</button>
+        <button mat-button  style="outline: none; background-color: #343F64 !important; color: white;" appearance="fill" (click)="onStudentLoginFormCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+</app-navbar>

@@ -1,0 +1,49 @@
+footer{
+  background:#343F64 !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; /*flex items will wrap onto multiple lines, from top to bottom.*/
+  padding: 20px;
+}
+.section-top{
+background:#343F64 !important;
+ display: flex;
+ justify-content: center; /*items are centered along the line*/
+//  padding: 20px 0;
+ }
+.section-bottom{
+  background:#343F64 !important;
+  text-align: center;
+  // padding: 15px 0;
+}
+.col{
+  margin: 0 15px;
+  width: 25% /*optional*/;
+  color: white;
+}
+
+/*style if screen size is <600px*/
+@media all and (max-width: 600px){
+.section-top{
+    flex-direction: column;
+}
+.col{
+  text-align: center;
+  width: 100%;
+  margin: 0
+}
+}
+
+/* footer icon css i.e facebook, twitter, instagram is getting displayed in single row */
+.social-icons-ul
+{
+   display: inline-flex;
+   list-style: none;
+   padding-right: 10%;
+}
+/* footer icon css i.e facebook, twitter, instagram is getting space between them in single row */
+.nav-item
+{
+  padding-left: 4%;
+  padding-right: 4%;
+}

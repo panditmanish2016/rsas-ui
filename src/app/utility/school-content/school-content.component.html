@@ -1,0 +1,33 @@
+<div class="row" *ngFor="let schoolContentData of schoolContentGeneralImageDataFiltered">
+  <div class="col-md-7">
+    <h2 class="feature-heading">{{schoolContentData.title}}<span
+        class="text-muted">{{schoolContentData.subTitle}}</span>
+    </h2>
+    <p class="lead">{{schoolContentData.description}}</p>
+    <p *ngIf="readMoreOnSchoolImage" class="lead">{{schoolContentData.description}}</p>
+    <button mat-button style="outline: none; background-color: #6c757d !important; color: white;"
+      (click)="getReadMoreOnSchoolImage()">{{readMoreOnSchoolImageDataId}}</button>
+  </div>
+  <div class="col-md-5">
+    <mat-card class="school-image-card">
+      <img mat-card-image src="assets/images/school/{{schoolContentData.image}}.jpg" alt="School Introductory Photo">
+    </mat-card>
+  </div>
+</div>
+<hr class="feature-divider">
+<div class="row" *ngFor="let schoolContentData of schoolContentGeneralYouTubeDataFiltered">
+  <div class="col-md-7 order-md-2">
+    <h2 class="feature-heading">{{schoolContentData.title}}<span
+        class="text-muted">{{schoolContentData.subTitle}}</span>
+    </h2>
+    <p class="lead">{{schoolContentData.description}}</p>
+    <p *ngIf="readMoreOnSchoolVideo" class="lead">{{schoolContentData.description}}</p>
+    <button mat-button style="outline: none; background-color: #6c757d !important; color: white;"
+      (click)="getReadMoreOnSchoolVideo()">{{readMoreOnSchoolVideoDataId}}</button>
+  </div>
+  <div class="col-md-5 order-md-1">
+    <mat-card class="embed-responsive-1by1-card">
+      <app-youtube-api [youTubeVideoId]="schoolContentData.youTubeVideoId"></app-youtube-api>
+    </mat-card>
+  </div>
+</div>

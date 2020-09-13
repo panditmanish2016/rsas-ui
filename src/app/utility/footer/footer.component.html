@@ -1,0 +1,33 @@
+<footer>
+  <section class="section-top">
+    <div class="col" *ngFor="let navItem of navItemListFiltered">
+      <h6 style="margin-left: 6%;">{{navItem.labelValue}}</h6>
+      <button mat-button style="outline: none; color: #959CB2;" (click)="navItemClicked(navSubItem)"
+        *ngFor="let navSubItem of navItem.i18NSubLabelList">{{navSubItem.labelValue}}</button>
+    </div>
+    <div class="col">
+      <h6>Address</h6>
+      <div>
+        <p *ngFor="let footerData of footerAddressFiltered" style="color: #959CB2; font-size: 14px; font-weight: 500;">
+          <img src="assets/images/icon/{{footerData.socialIcon}}.svg" alt="" style="width: 22px; height: 18px;">
+          {{footerData.labelValue}}
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section-bottom">
+    <div>
+      <ul class="social-icons-ul">
+        <li class="nav-item" *ngFor="let footerData of footerSocialLinkFiltered">
+          <a href="#">
+            <img src="assets/images/icon/{{footerData.socialIcon}}.svg" alt={{footerData.labelValue}}
+              style="width: 22px; height: 18px;">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="copy-right-class" style="color: #959CB2; font-size: 14px; font-weight: 500;">
+      © Copyright 2020 by RSAS BALLIA. Proudly created with JaitechsoftIndia.
+    </div>
+  </section>
+</footer>

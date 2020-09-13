@@ -1,0 +1,84 @@
+<div class="row feature">
+  <div class="col-md-7">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title style="font-size: 30px; color: #771100;">Latest Updates And Important Links</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <mat-list-item>
+          <h4 *ngFor="let updateAndLink of updatesAndLinksDataFiltered">
+            <button mat-button class="white-space-wrap" style="outline: none;"
+              (click)="latestUpadteLinkGeneralDataClicked(updateAndLink)">
+              {{updateAndLink.latestUpdate}}
+            </button>
+          </h4>
+        </mat-list-item>
+      </mat-card-content>
+      <mat-card-content *ngIf=" viewMoreLatestUpdatesAndLinks">
+        <mat-list-item>
+          <h4 *ngFor="let updateAndLink of updatesAndLinksDataFiltered">
+            <button mat-button class="white-space-wrap" style="outline: none;"
+              (click)="latestUpadteLinkGeneralDataClicked(updateAndLink)">
+              {{updateAndLink.latestUpdate}}
+            </button>
+          </h4>
+        </mat-list-item>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="getViewMoreLatestUpdatesAndLinks()"
+          style="outline: none; margin-left: 40%; color: white; background-color: #771100;">{{viewMoreUpdateLinkId}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="col-md-5">
+    <div *ngFor="let updateAndTechEvent of updatesAndTechEventsDataFiltered let i=index">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar style="color: #771100;">
+            {{updateAndTechEvent.eventDate}}
+          </div>
+          <div>
+            <button mat-button style=" white-space: break-spaces;
+      line-height: 20px; margin-left:-10%; outline: none;"
+              (click)="latestUpadteLinkGeneralDataClicked(updateAndTechEvent)">
+              <mat-card-title>{{updateAndTechEvent.latestUpdate}}</mat-card-title>
+              <mat-card-subtitle>{{updateAndTechEvent.updateDescription}}</mat-card-subtitle>
+            </button>
+          </div>
+          <img mat-card-image src="assets/images/tech_events/{{updateAndTechEvent.eventMedia}}.png"
+            alt="updateAndTechEvent.latestUpdate" style="width:100px; height:75px; ">
+        </mat-card-header>
+      </mat-card>
+      <mat-divider *ngIf="!((updatesAndTechEventsDataFiltered.length-1)==i)"></mat-divider>
+    </div>
+    <mat-divider *ngIf="viewMoreLatestTechEvents"></mat-divider>
+    <div *ngFor="let updateAndTechEvent of updatesAndTechEventsDataFiltered let i=index">
+      <mat-card *ngIf="viewMoreLatestTechEvents">
+        <mat-card-header>
+          <div mat-card-avatar style="color: #771100;">
+            {{updateAndTechEvent.eventDate}}
+          </div>
+          <div>
+            <button mat-button style=" white-space: break-spaces;
+      line-height: 20px; margin-left:-10%; outline: none;"
+              (click)="latestUpadteLinkGeneralDataClicked(updateAndTechEvent)">
+              <mat-card-title>{{updateAndTechEvent.latestUpdate}}</mat-card-title>
+              <mat-card-subtitle>{{updateAndTechEvent.updateDescription}}</mat-card-subtitle>
+            </button>
+          </div>
+          <img mat-card-image src="assets/images/tech_events/{{updateAndTechEvent.eventMedia}}.png"
+            alt="updateAndTechEvent.latestUpdate" style="width:100px; height:75px; ">
+        </mat-card-header>
+      </mat-card>
+      <mat-divider *ngIf="!((updatesAndTechEventsDataFiltered.length-1)==i) &&(viewMoreLatestTechEvents)"></mat-divider>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-actions>
+        <button mat-button (click)="getViewMoreLatestTechEvents()"
+          style="outline: none; margin-left: 40%; color: white; background-color: #771100;">{{viewMoreTechEventId}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

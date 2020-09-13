@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-4-custom" *ngFor="let staffData of carosuselStaffDataList let i=index">
+    <mat-card>
+      <img mat-card-image src="assets/images/staff/{{staffData.socialIcon}}.jpg" alt={{staffData.labelType}}
+        style="border-radius: 50% !important; width:140px; height:140px">
+      <mat-card-header>
+        <mat-card-title style="color: #771100;">{{staffData.labelType}}</mat-card-title>
+        <mat-card-subtitle style="color: #771100;">{{staffData.labelId}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{staffData.labelValue}}
+        </p>
+      </mat-card-content>
+      <mat-card-content *ngIf="staffViewMore && (satffSelected==staffData.labelType)">
+        <p>
+          {{staffData.labelValue}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button style="outline: none; color: white; background-color: #771100;"
+          (click)="getStaffViewMore(staffData, !staffViewMore)">{{(staffViewMore &&(satffSelected==staffData.labelType))? staffViewLessId: staffViewMoreId}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

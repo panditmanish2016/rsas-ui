@@ -1,0 +1,38 @@
+
+/* Space out the Bootstrap <hr> line more */
+.feature-divider {
+  margin: 2rem 0;
+}
+/* Thin out the main-body-content headings */
+.feature-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+/* RESPONSIVE CSS */
+@media (min-width: 40em) {
+  .feature-heading {
+    font-size: 50px;
+  }
+}
+@media (min-width: 62em) {
+  .feature-heading {
+    margin-top: 7rem;
+  }
+}
+
+/* making boarder across the all sides of mat-card for school image*/
+.school-image-card
+{
+  padding: 22px;
+  padding-bottom: 6px;
+}
+
+/*  making boarder across the all sides of mat-card
+ for you tube video player on mat card */
+.embed-responsive-1by1-card
+{
+  padding: 6px;
+  padding-bottom: 6px;
+}

@@ -1,0 +1,51 @@
+.sidenav-container {
+  height: 100%;
+}
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgb(0,0,0,.24);
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+/* if mobile view not found then display sidenav menu list with icon*/
+.hideHandset
+{
+  display: none;
+}
+
+/* this is to get mobile general screen size*/
+/* @media(min-width: 760px)
+{
+  .sidenav
+  {
+    display: none;
+  }
+} */
+
+/* tool bar nav-item css  */
+.spacer
+{
+  flex: 1 1 auto;
+}
+mat-toolbar a{
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+mat-nav-list.list-horizontal {
+  padding: 0;
+  .mat-list-item {
+    display: inline-block;
+    height: auto;
+    width: auto;
+  }
+}
+/* changing the color of navbar */
+mat-toolbar.mat-primary {
+  background: #343F64 !important;
+}
+

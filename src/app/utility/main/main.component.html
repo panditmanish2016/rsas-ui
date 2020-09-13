@@ -1,0 +1,15 @@
+<main role="main">
+  <div class="carousel-class">
+    <app-carousel [carosuselGeneralDataList]="carosuselGeneralDataList"></app-carousel>
+  </div>
+  <div class="container">
+    <app-school-staff [carosuselStaffDataList]="carosuselStaffDataList"></app-school-staff>
+    <hr class="feature-divider">
+    <app-school-content [schoolContentGeneralDataList]="schoolContentGeneralDataList"></app-school-content>
+    <hr class="feature-divider">
+    <app-latest-update-link [latestUpadteLinkGeneralDataList]="latestUpadteLinkGeneralDataList"
+      (latestUpadteLinkGeneralDataWasClicked)="latestUpadteLinkGeneralDataWasClicked($event)">
+    </app-latest-update-link>
+    <hr class="feature-divider">
+  </div>
+</main>

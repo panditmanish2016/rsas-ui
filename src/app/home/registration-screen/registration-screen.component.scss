@@ -1,0 +1,44 @@
+// small devices (extra small mobile screnn upyo mobiles screen size 576px)
+@media (max-width: 576px) {
+  .basic-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    }
+ }
+// mobile devices  (mimimum size 576px)
+@media (min-width: 578px) {
+  .basic-container {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 5%;
+    }
+ }
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .basic-container {
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 5%;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .basic-container {
+  padding-left: 34%;
+  padding-right: 34%;
+  padding-top: 5%;
+  }
+ }
+
+ /* display  line for mat-actions  inside form */
+.mat-card-actions-custom
+{
+  display: inline;
+}
+
+/* giving outside border to the mat card (outside the form panel) */
+.mat-card-border
+{
+  border:ridge;
+}

@@ -1,0 +1,9 @@
+<app-navbar [navItemList]="navItemList" (navItemWasClicked)="navItemWasClicked($event)">
+  <app-main [carosuselGeneralDataList]="carosuselGeneralDataList" [carosuselStaffDataList]="carosuselStaffDataList"
+    [schoolContentGeneralDataList]="schoolContentGeneralDataList"
+    [latestUpadteLinkGeneralDataList]="latestUpadteLinkGeneralDataList"
+    (latestUpadteLinkDataWasClicked)= "latestUpadteLinkDataWasClicked($event)">
+  </app-main>
+  <app-footer [navItemList]="navItemList" [footerGeneralDataList]="footerGeneralDataList"
+    (navItemWasClicked)="navItemWasClicked($event)"></app-footer>
+</app-navbar>
